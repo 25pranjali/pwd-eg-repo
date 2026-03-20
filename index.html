@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello World Website</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" href="icon.png" />
+  <meta name="theme-color" content="#1c92d2" />
+  <style>
+    :root {
+      --bg: linear-gradient(135deg, #0b3d91, #1c92d2);
+      --card: rgba(255, 255, 255, 0.12);
+      --text: #ffffff;
+      --accent: #ffd700;
+      --shadow: 0 18px 25px rgba(0, 0, 0, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    .wrapper {
+      width: min(90vw, 640px);
+      padding: 2.5rem;
+      border-radius: 1.25rem;
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 20px rgba(255, 255, 255, 0.46);
+    }
+
+    p {
+      font-size: 1.05rem;
+      margin-bottom: 1.75rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #ffd700;
+      color: #1c1c1c;
+      border: none;
+      border-radius: 999px;
+      padding: 0.72rem 1.35rem;
+      font-weight: 700;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.24);
+      text-decoration: none;
+      transition: transform .2s ease, filter .2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    .footer {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.72);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <h1>Hello, World!</h1>
+    <p>Welcome to your modern simple greeting web page. This is a minimal responsive design with cool gradient style.</p>
+    <a class="btn" href="#" aria-label="Get started">Get Started</a>
+    <div class="footer">Built with pure HTML and CSS</div>
+  </div>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('Service Worker registered', reg))
+          .catch(err => console.warn('SW registration failed', err));
+      });
+    }
+  </script>
+</body>
+</html>
